@@ -18,7 +18,7 @@ import axios from "axios";
 import ScrollableChat from "./ScrollableChat";
 // for socket.io
 import io from "socket.io-client";
-const ENDPOINT = "https://react-chat-vars.herokuapp.com";
+const ENDPOINT = process.env.BACKEND_URL;
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
