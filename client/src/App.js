@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 import ChatPage from "./pages/ChatPage";
 import FourOFour from "./pages/FourOFour";
 
-function App() {
+function App() {  
   return (
     <div className="App">
       <Routes>

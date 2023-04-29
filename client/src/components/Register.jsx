@@ -77,7 +77,7 @@ const Register = () => {
       };
       console.log(name, email, password, pic);
       const { data } = await axios.post(
-        "/api/users",
+        `${process.env.REACT_APP_BACKEND_URL}/api/users`,
         { name, email, password, pic },
         config
       );

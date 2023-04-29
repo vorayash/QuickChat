@@ -18,7 +18,7 @@ import axios from "axios";
 import ScrollableChat from "./ScrollableChat";
 // for socket.io
 import io from "socket.io-client";
-const ENDPOINT = process.env.BACKEND_URL;
+const ENDPOINT = process.env.REACT_APP_BACKEND_URL;
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -41,7 +41,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.get(
-        `/api/message/${selectedChat._id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/message/${selectedChat._id}`,
         config
       );
       setMessages(data);
@@ -66,7 +66,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         };
         setNewMessage("");
         const { data } = await axios.post(
-          "/api/message",
+          `${process.env.REACT_APP_BACKEND_URL}/api/message`,
           {
             chatId: selectedChat._id,
             content: newMessage,
@@ -92,7 +92,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         },
       };
       await axios.post(
-        "/api/notification",
+        `${process.env.REACT_APP_BACKEND_URL}/api/notification`,
         {
           notification: notification[0].chatId.latestMessage,
         },
