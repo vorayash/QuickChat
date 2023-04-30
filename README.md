@@ -1,6 +1,6 @@
 ## CHAT APP using MERN stack and SOCKET.IO
 
-- Visit <https://644d56af62fef53c18b98dfb--mern-chat-app-frontend.netlify.app/>
+- Visit <https://644d5cb6847cab3b8eed18af--quickchat-frontend.netlify.app/>
 
 ---
 
