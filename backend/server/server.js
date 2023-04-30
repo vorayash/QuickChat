@@ -14,7 +14,7 @@ dbConnect();
 const app = express();
 app.use(express.json());
 
-(process.env.NODE_ENV != 'production') ? app.use(cors()):app.use(cors({origin: 'https://644d56af62fef53c18b98dfb--mern-chat-app-frontend.netlify.app'}));
+app.use(cors());
 
 // Main routes
 app.use("/api/users", userRoutes);
