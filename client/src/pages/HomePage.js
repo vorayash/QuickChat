@@ -36,9 +36,9 @@ const Homepage = () => {
     >
       <GridItem colSpan={4} className="home_img"></GridItem>
       <GridItem colSpan={2} bg="#fff" minW={"500px"}>
-        <Container maxW="xl" centerContent>
+        <Container maxW="container.xl" centerContent>
           <Box
-            d="flex"
+            display="flex" 
             justifyContent="center"
             alignContent="center"
             p="3"
