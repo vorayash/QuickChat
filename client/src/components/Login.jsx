@@ -33,10 +33,12 @@ const Login = () => {
     setLoading(true);
 
     if (!email || !password) {
-      toast.warn("Please enter all the required fields");
+      setLoading(false);
+      return toast.warn("Please enter all the required fields");
     }
     if (!validateEmail(email)) {
-      toast.warn("Invalid Email");
+      setLoading(false);
+      return toast.warn("Invalid Email");
     }
     try {
       const config = {
@@ -101,6 +103,7 @@ const Login = () => {
         width="100%"
         style={{ marginTop: "40px" }}
         onClick={handleSubmit}
+        isLoading={loading}
       >
         Login
       </Button>
@@ -117,7 +120,6 @@ const Login = () => {
             password: "thisISTHE1234PAssGU3st",
           });
         }}
-        isLoading={loading}
       >
         Guest login
       </Button>

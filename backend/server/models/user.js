@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 10;
-
+  
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema(
     image: {
       type: String,
       default:
-        "https://res.cloudinary.com/dfcaehp0b/image/upload/v1650481698/vd6bg6se3kbqutrd4cn1.png",
+        "https://res.cloudinary.com/ddayasqsp/image/upload/v1682923821/samples/animals/cat.jpg",
     },
   },
   {

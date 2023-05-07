@@ -241,6 +241,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         </>
       ) : (
         <Box
+          className="quickchat"
           d="flex"
           alignItems="center"
           justifyContent="center"

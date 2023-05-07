@@ -39,9 +39,9 @@ const Register = () => {
     if (pics.type === "image/png") {
       const data = new FormData();
       data.append("file", pics);
-      data.append("upload_preset", "DELinkChatApp");
-      data.append("cloud_name", "dfcaehp0b");
-      fetch("https://api.cloudinary.com/v1_1/dfcaehp0b/image/upload", {
+      data.append("upload_preset", "ug1ypdq6");
+      data.append("cloud_name", "ddayasqsp");
+      fetch("https://api.cloudinary.com/v1_1/ddayasqsp/image/upload", {
         method: "post",
         body: data,
       })
@@ -67,7 +67,11 @@ const Register = () => {
   const handleSubmit = async () => {
     setIsLoading(true);
     const message = valid(name, email, password, cf_password);
-    if (message) return toast.warn(message);
+    if (message)
+    {
+      setIsLoading(false);
+      return toast.warn(message);
+    } 
     // ? request
     try {
       const config = {
@@ -75,7 +79,7 @@ const Register = () => {
           "Content-type": "application/json",
         },
       };
-      console.log(name, email, password, pic);
+      // console.log(name, email, password, pic);
       const { data } = await axios.post(
         `${process.env.REACT_APP_BACKEND_URL}/api/users`,
         { name, email, password, pic },
