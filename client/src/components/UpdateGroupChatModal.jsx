@@ -37,7 +37,8 @@ const UpdateGroupChatModal = ({
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const [renameLoading, setRenameLoading] = useState(false);
-
+  // For accordian text
+  const [expanded, setExpanded] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { selectedChat, user, setSelectedChat } = ChatState();
 
@@ -268,8 +269,8 @@ const UpdateGroupChatModal = ({
           <ModalFooter>
             <Accordion allowToggle width="100%">
               <AccordionItem>
-                <AccordionButton d="flex" justifyContent="center" width="100%">
-                  Danger Zone
+                <AccordionButton d="flex" justifyContent="center" width="100%" onClick={()=>setExpanded(!expanded)}>
+                  {expanded ? "Cancel" : "Leave Group"}
                 </AccordionButton>
                 <AccordionPanel>
                   <Text>

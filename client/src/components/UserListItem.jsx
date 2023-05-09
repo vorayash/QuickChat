@@ -5,6 +5,7 @@ import { MdAlternateEmail } from "react-icons/md";
 const UserListItem = ({ user, handleFunction }) => {
   return (
     <Box
+    className="userlistitem"
       onClick={handleFunction}
       cursor="pointer"
       bg="#e8e8e8"
@@ -31,7 +32,7 @@ const UserListItem = ({ user, handleFunction }) => {
       />
       <Box>
         <Text fontWeight="bold">{user.name} </Text>
-        <Text fontSize="sm" d="flex" alignItems="center">
+        <Text fontSize="sm" display="flex" alignItems="center">
           <b>
             <MdAlternateEmail />
           </b>
