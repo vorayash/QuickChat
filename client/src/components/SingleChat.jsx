@@ -24,6 +24,61 @@ var socket, selectedChatCompare;
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const { user, selectedChat, setSelectedChat, notification, setNotification } =
     ChatState();
+
+    // [
+    //   {
+    //     "_id": "644d524218e92a14bbacb004",
+    //     "sender": {
+    //       "_id": "644d523318e92a14bbacaff3",
+    //       "name": "Dip Vekariya",
+    //       "email": "dipvekariya26@gmail.com",
+    //       "image": "http://res.cloudinary.com/dfcaehp0b/image/upload/v1682788914/b6sfwvpagsqqhp4c8vds.jpg"
+    //     },
+    //     "content": "Hii Yash",
+    //     "chatId": {
+    //       "_id": "644d523d18e92a14bbacaffd",
+    //       "chatName": "sender",
+    //       "isGroupChat": false,
+    //       "users": [
+    //         "644d523318e92a14bbacaff3",
+    //         "644d515018e92a14bbacafe8"
+    //       ],
+    //       "createdAt": "2023-04-29T17:22:05.202Z",
+    //       "updatedAt": "2023-04-29T17:51:50.342Z",
+    //       "__v": 0,
+    //       "latestMessage": "644d593618e92a14bbacb03b"
+    //     },
+    //     "createdAt": "2023-04-29T17:22:10.333Z",
+    //     "updatedAt": "2023-04-29T17:22:10.333Z",
+    //     "__v": 0
+    //   },
+    //   {
+    //     "_id": "644d525618e92a14bbacb017",
+    //     "sender": {
+    //       "_id": "644d515018e92a14bbacafe8",
+    //       "name": "Yash Vora",
+    //       "email": "vorayash9028@gmail.com",
+    //       "image": "http://res.cloudinary.com/dfcaehp0b/image/upload/v1682788687/gfagsdj5o1eq8jidmzzn.png"
+    //     },
+    //     "content": "Hii Dip",
+    //     "chatId": {
+    //       "_id": "644d523d18e92a14bbacaffd",
+    //       "chatName": "sender",
+    //       "isGroupChat": false,
+    //       "users": [
+    //         "644d523318e92a14bbacaff3",
+    //         "644d515018e92a14bbacafe8"
+    //       ],
+    //       "createdAt": "2023-04-29T17:22:05.202Z",
+    //       "updatedAt": "2023-04-29T17:51:50.342Z",
+    //       "__v": 0,
+    //       "latestMessage": "644d593618e92a14bbacb03b"
+    //     },
+    //     "createdAt": "2023-04-29T17:22:30.627Z",
+    //     "updatedAt": "2023-04-29T17:22:30.627Z",
+    //     "__v": 0
+    //   }
+    // ]
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState();
   const [loading, setLoading] = useState(false);
@@ -116,7 +171,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     selectedChatCompare = selectedChat;
   }, [selectedChat]);
 
-  console.log(notification);
+  // console.log(notification);
   useEffect(() => {
     socket.on("message received", (newMessageReceived) => {
       if (
@@ -132,9 +187,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       }
     });
   });
+
   useEffect(() => {
     saveNotification();
   }, [notification]);
+
   const typingHandler = (e) => {
     setNewMessage(e.target.value);
     if (!socketConnected) return;
@@ -177,6 +234,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             </Box>
             {!selectedChat.isGroupChat ? (
               <Text
+                as="span"
                 width="100%"
                 d="flex"
                 py="3"
@@ -184,14 +242,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 justifyContent={{ base: "space-between" }}
                 fontSize={{ base: "1.5rem", md: "1.75rem" }}
               >
-                <Box display="flex" flexDir="column" alignItems="flex-start">
                   {getSender(user.user, selectedChat.users).name}
-
-                  <Box minH="10px">
-                    {isTyping && <Text fontSize="8px">Typing...</Text>}
-                  </Box>
-                </Box>
-
                 <ProfileModel user={getSender(user.user, selectedChat.users)} />
               </Text>
             ) : (
@@ -217,7 +268,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               <Loader />
             ) : (
               <div className="message">
-                {<ScrollableChat messages={messages} />}
+                {<ScrollableChat messages={messages} isTyping={isTyping}/>}
               </div>
             )}
           </Box>

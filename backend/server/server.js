@@ -63,7 +63,7 @@ io.on("connection", (socket) => {
   console.log("Sockets are in action");
   socket.on("setup", (userData) => {
     socket.join(userData._id);
-    console.log(userData.name, "connected");
+    console.log(userData.name, "connected" +   userData._id);
     socket.emit("connected");
   });
   socket.on("join chat", (room) => {
@@ -77,9 +77,11 @@ io.on("connection", (socket) => {
     chat.users.forEach((user) => {
       if (user._id === newMessage.sender._id) return;
       socket.in(user._id).emit("message received", newMessage);
+      console.log("message received " + user._id);
     });
     socket.on("typing", (room) => {
       socket.in(room).emit("typing");
+      console.log("typing "+room);
     });
     socket.on("stop typing", (room) => {
       socket.in(room).emit("stop typing");

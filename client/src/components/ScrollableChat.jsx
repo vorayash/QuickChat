@@ -8,9 +8,11 @@ import {
 } from "../config/ChatLogics";
 import { ChatState } from "../context/ChatProvider";
 import { Tooltip, Avatar } from "@chakra-ui/react";
+import { getSender } from "../config/ChatLogics";
+import styles from "./ScrollableChat.module.css";
 
-const ScrollableChat = ({ messages }) => {
-  const { user } = ChatState();
+const ScrollableChat = ({ messages, isTyping }) => {
+  const { user, selectedChat } = ChatState();
   return (
     <ScrollableFeed>
       {messages &&
@@ -58,6 +60,40 @@ const ScrollableChat = ({ messages }) => {
             </span>
           </div>
         ))}
+      {isTyping && (
+        <div style={{ display: "flex" }}>
+          <Tooltip
+            // label
+            placement="bottom-start"
+            hasArrow
+          >
+            <Avatar
+              mt="20px"
+              mr="1"
+              size="xs"
+              cursor="pointer"
+              name={getSender(user.user, selectedChat.users).name}
+              src={getSender(user.user, selectedChat.users).image}
+            />
+          </Tooltip>
+          <span
+            style={{
+              backgroundColor: "#b9f5d0",
+              borderRadius: "0.8rem 0.8rem 0.8rem 0",
+              padding: "0.5rem 1rem",
+              maxWidth: "66%",
+              marginLeft: 0,
+              marginTop: 10,
+            }}
+          >
+            <div className={styles.typing}>
+              <div className={styles.dot}></div>
+              <div className={styles.dot}></div>
+              <div className={styles.dot}></div>
+            </div>
+          </span>
+        </div>
+      )}
     </ScrollableFeed>
   );
 };

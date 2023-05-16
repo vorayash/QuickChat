@@ -165,7 +165,7 @@ const SideDrawer = () => {
                   cursor="pointer"
                   onClick={() => {
                     removeNotification(notify.chatId._id);
-                    console.log(notify);
+                    // console.log(notify);
                     setSelectedChat(notify.chatId);
                     setNotification(notification.filter((n) => n !== notify));
                   }}
