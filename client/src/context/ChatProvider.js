@@ -9,14 +9,14 @@ const ChatProvider = ({ children }) => {
 //         "_id": "644d515018e92a14bbacafe8",
 //         "name": "Yash Vora",
 //         "email": "vorayash9028@gmail.com",
-//         "password": "$2b$10$tbBRrT1FCDWLh2gj5rmH2uAwijLc6krvBQkOTrrYkAfPL4ocZDjeC",
+//         "password": "",
 //         "image": "http://res.cloudinary.com/dfcaehp0b/image/upload/v1682788687/gfagsdj5o1eq8jidmzzn.png",
 //         "createdAt": "2023-04-29T17:18:08.558Z",
 //         "updatedAt": "2023-04-29T17:18:08.558Z",
 //         "__v": 0
 //     },
 //     "message": "user successfully logged in",
-//     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGQ1MTUwMThlOTJhMTRiYmFjYWZlOCIsImlhdCI6MTY4MzU3MDkzNCwiZXhwIjoxNjg0MTc1NzM0fQ.ZUzlNoGBVJVhuaF_WZTHqOCgk9qVsSRj6YH56oTl5co"
+//     "token": ""
 // }
   const [user, setUser] = useState();
   // {
