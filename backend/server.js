@@ -8,7 +8,8 @@ const chatRoutes = require("./api/routes/chatRoutes");
 const messageRoutes = require("./api/routes/messageRoutes");
 const notificationRoutes = require("./api/routes/notificationRoutes");
 const path = require("path");
-var cors = require('cors')
+var cors = require('cors');
+const { response } = require("express");
 
 dbConnect();
 const app = express();
@@ -21,6 +22,9 @@ app.use("/api/users", userRoutes);
 app.use("/api/chats", chatRoutes);
 app.use("/api/message", messageRoutes);
 app.use("/api/notification", notificationRoutes);
+app.get("/", (req, res)=>{
+  res.send("running");
+})
 
 // -----------------------------------------------------------------------------
 
