@@ -62,11 +62,7 @@ const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
     origin: "*",
-    methods: ["GET", "POST"],
-    transports: ['websocket', 'polling'],
-    credentials: true
   },
-  allowEIO3: true
 });
 
 io.on("connection", (socket) => {
