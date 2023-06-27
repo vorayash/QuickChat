@@ -7,9 +7,7 @@ const userRoutes = require("./api/routes/userRoutes");
 const chatRoutes = require("./api/routes/chatRoutes");
 const messageRoutes = require("./api/routes/messageRoutes");
 const notificationRoutes = require("./api/routes/notificationRoutes");
-const path = require("path");
 var cors = require('cors');
-const { response } = require("express");
 
 dbConnect();
 const app = express();

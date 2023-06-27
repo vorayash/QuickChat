@@ -26,7 +26,7 @@ const MyChats = ({ fetchAgain }) => {
     }
   };
   useEffect(() => {
-    setLoggedUser(JSON.parse(localStorage.getItem("deLinkUser")));
+    setLoggedUser(JSON.parse(localStorage.getItem("quickChatUser")));
     fetchChats();
   }, [fetchAgain]);
 

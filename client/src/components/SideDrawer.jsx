@@ -45,7 +45,7 @@ const SideDrawer = () => {
   } = ChatState();
 
   const logoutHandler = () => {
-    localStorage.removeItem("deLinkUser");
+    localStorage.removeItem("quickChatUser");
     navigate("/");
   };
 

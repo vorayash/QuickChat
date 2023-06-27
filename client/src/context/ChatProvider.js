@@ -38,7 +38,7 @@ const ChatProvider = ({ children }) => {
   //       "name": "Kunal Parmar",
   //       "email": "kunal@gmail.com",
   //       "image": "http://res.cloudinary.com/ddayasqsp/image/upload/v1683651589/profile_pic/k3dkfdxi7xyrsoqkieq2.png",
-  //       "createdAt": "2023-05-09T16:59:54.611Z",
+  //       "createdAt": "2023-059-09T16:59:54.611Z",
   //       "updatedAt": "2023-05-09T16:59:54.611Z",
   //       "__v": 0
   //     }
@@ -175,7 +175,7 @@ const ChatProvider = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const userInfo = JSON.parse(localStorage.getItem("deLinkUser"));
+    const userInfo = JSON.parse(localStorage.getItem("quickChatUser"));
     setUser(userInfo);
     if (!userInfo) {
       navigate("/");

@@ -52,7 +52,7 @@ const Login = () => {
         config
       );
       toast.success("User Logged In successfully");
-      localStorage.setItem("deLinkUser", JSON.stringify(data));
+      localStorage.setItem("quickChatUser", JSON.stringify(data));
       setLoading(false);
       navigate("/chats");
     } catch (err) {
@@ -89,7 +89,7 @@ const Login = () => {
               h="1.75rem"
               size="xs"
               onClick={handleClick}
-              isDisabled={email === "guest@deLink.com"}
+              isDisabled={email === "guest@quickChatUser.com"}
             >
               {show ? "Hide" : "Show"}
             </Button>
@@ -116,7 +116,7 @@ const Login = () => {
         style={{ marginTop: "10px" }}
         onClick={() => {
           setUserData({
-            email: "guest@deLink.com",
+            email: "guest@quickChatUser.com",
             password: "thisISTHE1234PAssGU3st",
           });
         }}

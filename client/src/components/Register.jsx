@@ -86,7 +86,7 @@ const Register = () => {
         config
       );
       toast.info("User Registered Successfully");
-      localStorage.setItem("deLinkUser", JSON.stringify(data));
+      localStorage.setItem("quickChatUser", JSON.stringify(data));
       setIsLoading(false);
       navigate("/chats");
     } catch (error) {

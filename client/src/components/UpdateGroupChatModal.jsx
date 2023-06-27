@@ -124,7 +124,7 @@ const UpdateGroupChatModal = ({
     }
   };
   const handleAddMember = async (userToAdd) => {
-    if (userToAdd.email === "guest@deLink.com") {
+    if (userToAdd.email === "guest@quickChat.com") {
       toast.info("\nGuest user can not be a part of group");
       return;
     }
